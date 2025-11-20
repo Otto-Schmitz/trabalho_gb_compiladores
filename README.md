@@ -1,2 +1,2 @@
-### Rodar todos os testes: 
+### Rodar todos os testes:  
 .\testar.bat
