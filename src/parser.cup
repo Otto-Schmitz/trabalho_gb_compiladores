@@ -1,0 +1,114 @@
+import java_cup.runtime.*;
+import java.util.*;
+
+parser code {:
+  // Chamado sempre que o CUP encontra um erro de sintaxe
+  public void syntax_error(java_cup.runtime.Symbol cur_token) {
+      String text = (cur_token.value != null)
+              ? cur_token.value.toString()
+              : cur_token.toString();
+
+      String msg = "token inesperado '" + text + "'";
+      ErrorReporter.syntaxError(cur_token.left, cur_token.right, msg);
+  }
+:};
+
+// ---- Terminais (tokens do lexer) ----
+
+terminal INICIO, FIM, INTEIRO, REAL, IMPRIMA;
+terminal String IDENT;
+terminal Integer NUM_INT;
+terminal Double  NUM_REAL;
+terminal PLUS, MINUS, TIMES, DIV;
+terminal ATRIB;
+terminal SEMI, LPAREN, RPAREN, DOT;
+
+// ---- Não-terminais com tipos Java ----
+
+non terminal Program program;
+non terminal java.util.List<Decl> decl_list;
+non terminal Decl decl;
+non terminal java.util.List<Stmt> stmt_list;
+non terminal Stmt stmt;
+non terminal Expr expr;
+non terminal Expr term;
+non terminal Expr factor;
+
+// start
+start with program;
+
+// ---- Gramática ----
+
+// programa: inicio <decls> <stmts> fim .
+program ::=
+    INICIO decl_list:ds stmt_list:ss FIM DOT
+    {: RESULT = new Program(ds, ss); :}
+;
+
+// lista de declarações (pode ser vazia)
+decl_list ::=
+      decl_list:ds decl:d
+      {: ds.add(d); RESULT = ds; :}
+    | /* vazio */
+      {: RESULT = new java.util.ArrayList<Decl>(); :}
+;
+
+// decl: inteiro x; | real y;
+decl ::=
+      INTEIRO IDENT:id SEMI
+      {: RESULT = new Decl(TypeNode.INT, id); :}
+    | REAL    IDENT:id SEMI
+      {: RESULT = new Decl(TypeNode.REAL, id); :}
+;
+
+// lista de comandos (pode ser vazia)
+stmt_list ::=
+      stmt_list:ss stmt:s
+      {: ss.add(s); RESULT = ss; :}
+    | /* vazio */
+      {: RESULT = new java.util.ArrayList<Stmt>(); :}
+;
+
+// comandos:
+//   x := expr;
+//   imprima(expr);
+stmt ::=
+      IDENT:id ATRIB expr:e SEMI
+      {: RESULT = new AssignStmt(id, e); :}
+    | IMPRIMA LPAREN expr:e RPAREN SEMI
+      {: RESULT = new PrintStmt(e); :}
+;
+
+// EXPRESSÕES COM PRECEDÊNCIA:
+// expr  -> expr + term | expr - term | term
+// term  -> term * factor | term / factor | factor
+// factor -> NUM_INT | NUM_REAL | IDENT | (expr)
+
+expr ::=
+      expr:e1 PLUS term:t
+      {: RESULT = new BinExpr("+", e1, t); :}
+    | expr:e1 MINUS term:t
+      {: RESULT = new BinExpr("-", e1, t); :}
+    | term:t
+      {: RESULT = t; :}
+;
+
+term ::=
+      term:t TIMES factor:f
+      {: RESULT = new BinExpr("*", t, f); :}
+    | term:t DIV factor:f
+      {: RESULT = new BinExpr("/", t, f); :}
+    | factor:f
+      {: RESULT = f; :}
+;
+
+factor ::=
+      NUM_INT:n
+      {: RESULT = new IntLiteral(n); :}
+    | NUM_REAL:r
+      {: RESULT = new RealLiteral(r); :}
+    | IDENT:id
+      {: RESULT = new VarExpr(id); :}
+    | LPAREN expr:e RPAREN
+      {: RESULT = e; :}
+;
