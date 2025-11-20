@@ -1,0 +1,9 @@
+inicio
+    inteiro x;
+
+    x := 2 + 3 * 4;
+    y := (2 + 3) * 4.0;
+    imprima(x);
+    imprima(y);
+fim.
+    
