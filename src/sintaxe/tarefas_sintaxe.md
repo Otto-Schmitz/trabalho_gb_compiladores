@@ -1,0 +1,1 @@
+### Adicionar itens pendentes sobre a parte de sintaxe
