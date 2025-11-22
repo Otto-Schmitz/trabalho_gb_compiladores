@@ -19,6 +19,7 @@ public class sym {
   public static final int LPAREN = 16;
   public static final int ATRIB = 14;
   public static final int INTEIRO = 4;
+  public static final int COMMA = 19;
   public static final int EOF = 0;
   public static final int DIV = 13;
   public static final int MINUS = 11;
@@ -46,7 +47,8 @@ public class sym {
   "SEMI",
   "LPAREN",
   "RPAREN",
-  "DOT"
+  "DOT",
+  "COMMA"
   };
 }
 

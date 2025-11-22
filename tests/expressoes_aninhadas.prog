@@ -1,0 +1,17 @@
+inicio
+    inteiro x;
+    real y;
+    real resultado;
+
+    x := 5;
+    y := 2.0;
+
+    resultado := ((x + 1) * (y - 1)) / (x - 3);
+    imprima(resultado);  
+
+    resultado := x + (y * (x - 2) + 1);
+    imprima(resultado);  
+
+    x := (x * 2) - ((x / 2) + 1);
+    imprima(x); 
+fim.

@@ -1,0 +1,11 @@
+inicio
+    inteiro x;
+    real y;
+
+    x := 10;
+    y := 3.5;
+
+    imprima(x + x); // int + int
+    imprima(x + y); // int + real
+    imprima(y + y); // real + real
+fim.

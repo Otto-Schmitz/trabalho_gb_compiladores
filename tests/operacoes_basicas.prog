@@ -1,0 +1,21 @@
+inicio
+    inteiro a;
+    inteiro b;
+    real c;
+    real d;
+
+    a := 20;
+    b := 4;
+    c := 15.0;
+    d := 3.0;
+
+    imprima(a + b);   // 24
+    imprima(a - b);   // 16
+    imprima(a * b);   // 80
+    imprima(a / b);   // 5
+
+    imprima(c + d);   // 18.0
+    imprima(c - d);   // 12.0
+    imprima(c * d);   // 45.0
+    imprima(c / d);   // 5.0
+fim.

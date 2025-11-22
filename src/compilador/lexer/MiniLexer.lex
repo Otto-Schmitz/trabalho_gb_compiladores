@@ -27,10 +27,12 @@ IDENT    = [a-zA-Z_][a-zA-Z0-9_]*
 NUM_INT  = [0-9]+
 NUM_REAL = [0-9]+"."[0-9]+
 WS       = [ \t\r\n]+
+COMMENT  = "//".*
 
 %%
 
 {WS}              { /* ignora espaços/brancos */ }
+{COMMENT}         { /* ignora comentários // */ }
 
 "inicio"          { return symbol(sym.INICIO); }
 "fim"             { return symbol(sym.FIM); }
@@ -49,6 +51,7 @@ WS       = [ \t\r\n]+
 "("               { return symbol(sym.LPAREN); }
 ")"               { return symbol(sym.RPAREN); }
 "."               { return symbol(sym.DOT); }
+","               { return symbol(sym.COMMA); }
 
 {NUM_REAL}        { return symbol(sym.NUM_REAL, Double.valueOf(yytext())); }
 {NUM_INT}         { return symbol(sym.NUM_INT, Integer.valueOf(yytext())); }
@@ -56,7 +59,7 @@ WS       = [ \t\r\n]+
 {IDENT}           { return symbol(sym.IDENT, yytext()); }
 
 .                 { ErrorReporter.lexicalError(yyline + 1, yycolumn + 1, yytext()); 
-                    return null; 
+                    // Não retorne null, apenas continue
                   }
 
-<<EOF>>           { return null; }
+<<EOF>>           { return new Symbol(sym.EOF); }

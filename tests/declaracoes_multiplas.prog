@@ -1,0 +1,16 @@
+inicio
+    // Teste de declarações múltiplas com vírgula
+    inteiro x, y, z;  // Três variáveis inteiras
+    real a, b;        // Duas variáveis reais
+    
+    // Atribuições
+    x := 10;
+    y := 20; 
+    z := 30;
+    a := 1.5;
+    b := 2.5;
+    
+    // Operações
+    imprima(x + y + z);  // deve imprimir 60
+    imprima(a * b);      // deve imprimir 3.75
+fim.

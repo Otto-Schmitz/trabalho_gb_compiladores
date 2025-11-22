@@ -24,13 +24,13 @@ terminal Integer NUM_INT;
 terminal Double  NUM_REAL;
 terminal PLUS, MINUS, TIMES, DIV;
 terminal ATRIB;
-terminal SEMI, LPAREN, RPAREN, DOT;
+terminal SEMI, LPAREN, RPAREN, DOT, COMMA;
 
 // ---- Não-terminais com tipos Java ----
 
 non terminal Program program;
 non terminal java.util.List<Decl> decl_list;
-non terminal Decl decl;
+non terminal java.util.List<String> ident_list;
 non terminal java.util.List<Stmt> stmt_list;
 non terminal Stmt stmt;
 non terminal Expr expr;
@@ -50,19 +50,37 @@ program ::=
 
 // lista de declarações (pode ser vazia)
 decl_list ::=
-      decl_list:ds decl:d
-      {: ds.add(d); RESULT = ds; :}
+      decl_list:ds INTEIRO ident_list:ids SEMI
+      {: 
+         for (String id : ids) {
+           ds.add(new Decl(TypeNode.INT, id, 0, 0));
+         }
+         RESULT = ds; 
+      :}
+    | decl_list:ds REAL ident_list:ids SEMI
+      {: 
+         for (String id : ids) {
+           ds.add(new Decl(TypeNode.REAL, id, 0, 0));
+         }
+         RESULT = ds; 
+      :}
     | /* vazio */
       {: RESULT = new java.util.ArrayList<Decl>(); :}
 ;
 
-// decl: inteiro x; | real y;
-decl ::=
-      INTEIRO IDENT:id SEMI
-      {: RESULT = new Decl(TypeNode.INT, id, idleft, idright); :}
-    | REAL    IDENT:id SEMI
-      {: RESULT = new Decl(TypeNode.REAL, id, idleft, idright); :}
+// lista de identificadores separados por vírgula
+ident_list ::=
+      ident_list:ids COMMA IDENT:id
+      {: ids.add(id); RESULT = ids; :}
+    | IDENT:id
+      {: 
+         java.util.List<String> ids = new java.util.ArrayList<>();
+         ids.add(id);
+         RESULT = ids;
+      :}
 ;
+
+// REMOVER regra decl antiga - não precisamos mais dela
 
 
 // lista de comandos (pode ser vazia)

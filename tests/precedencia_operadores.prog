@@ -1,0 +1,16 @@
+inicio
+    inteiro resultado1;
+    inteiro resultado2;
+    inteiro resultado3;
+    real resultado4;
+
+    resultado1 := 2 + 3 * 4;     // 14
+    resultado2 := (2 + 3) * 4;   // 20
+    resultado3 := 15 / 3 + 2;    // 7
+    resultado4 := (10.0 - 2.0) / 2.0; //4.0
+
+    imprima(resultado1);
+    imprima(resultado2);
+    imprima(resultado3);
+    imprima(resultado4);
+fim.
