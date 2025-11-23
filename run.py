@@ -77,6 +77,12 @@ def run_compiler(filename, mode_tokens=False, mode_ast=False, mode_run=True):
         f"Executando compilador: {filename}"
     )
 
+    if mode_ast | mode_run:
+        run_command(
+            cmd=f"dot -Tpng ast.dot -o {filename}_ast.png",
+            description=f"Gerando {filename}_ast.png"
+        )
+
 def check_files():
     """Verifica se arquivos necessários existem"""
     required_files = [
