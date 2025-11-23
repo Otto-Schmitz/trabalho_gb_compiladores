@@ -123,7 +123,7 @@ def main():
     if args.arquivo:
         run_compiler(args.arquivo, args.tokens, args.ast, args.run)
     else:
-        print("Build concluído. Use: python run.py arquivo.prog")
+        print("Build concluído. Use: python run.py tests\\arquivo.prog")
 
 if __name__ == "__main__":
     main()
