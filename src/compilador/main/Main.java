@@ -36,6 +36,7 @@ public class Main {
         }
 
         if (modeTokens) {
+            System.out.println("ENTROU NO TOKES");
             runTokens(filename);
             // se só --tokens foi passado, paramos aqui
             if (!modeAst && !modeRun) return;
@@ -51,7 +52,7 @@ public class Main {
             MiniLexer lexer = new MiniLexer(r);
             while (true) {
                 Symbol s = lexer.next_token();
-                if (s == null) break;
+                 if (s == null ||s.sym == 0) break;
 
                 String lexeme = (s.value != null) ? s.value.toString() : "";
                 System.out.printf(
@@ -59,8 +60,11 @@ public class Main {
                     s.sym, lexeme, s.left, s.right
                 );
             }
+        } catch (Exception e) {
+            String message = "Exception: " + e;
+            System.out.println(message);
         }
-        System.out.println("== FIM TOKENS ==");
+        
     }
 
     // ---- Pipeline completo: parser + semântico + (ast/ir/run) ----
