@@ -80,7 +80,7 @@ def run_compiler(filename, mode_tokens=False, mode_ast=False, mode_run=True):
     if mode_ast | mode_run:
         run_command(
             cmd=f"dot -Tpng ast.dot -o {filename}_ast.png",
-            description=f"Gerando {filename}_ast.png"
+            description=f"Gerando {filename}_ast.png se ast for válida!"
         )
 
 def check_files():
