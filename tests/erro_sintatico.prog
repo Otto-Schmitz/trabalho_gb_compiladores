@@ -1,0 +1,14 @@
+inicio
+    inteiro x, y;
+    real z;
+    
+    x := 10;
+    y := 20;
+    
+    // Erro sintático: falta ponto e vírgula
+    z := x + y
+    
+    // Erro sintático: token inesperado (faltou fechar parênteses)
+    imprima(x + y;
+fim.
+

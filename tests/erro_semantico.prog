@@ -1,0 +1,15 @@
+inicio
+    inteiro x;
+    real y;
+    
+    x := 10;
+    y := 3.5;
+    
+    // Erro semântico: variável 'z' não foi declarada
+    z := x + y;
+    imprima(z);
+    
+    // Erro semântico: tentativa de usar variável não declarada
+    imprima(naoExiste);
+fim.
+

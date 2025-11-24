@@ -46,8 +46,9 @@ def build():
     )
     
     # Compilação
+    separator = ";" if os.name == "nt" else ":"
     run_command(
-        'javac -cp ".;lib/java-cup-11b-runtime.jar" -d bin src/compilador/lexer/MiniLexer.java src/compilador/parser/Parser.java src/compilador/parser/sym.java src/compilador/parser/*.java src/compilador/semantic/*.java src/compilador/exec/*.java src/compilador/main/*.java',
+        f'javac -cp ".{separator}lib/java-cup-11b-runtime.jar" -d bin src/compilador/lexer/MiniLexer.java src/compilador/parser/Parser.java src/compilador/parser/sym.java src/compilador/parser/*.java src/compilador/semantic/*.java src/compilador/exec/*.java src/compilador/main/*.java',
         "Compilando todas as classes Java"
     )
     
@@ -72,8 +73,9 @@ def run_compiler(filename, mode_tokens=False, mode_ast=False, mode_run=True):
     args_str = " ".join(args)
     
     # Executa
+    separator = ";" if os.name == "nt" else ":"
     run_command(
-        f'java -cp "bin;lib/java-cup-11b-runtime.jar" compilador.main.Main {args_str}',
+        f'java -cp "bin{separator}lib/java-cup-11b-runtime.jar" compilador.main.Main {args_str}',
         f"Executando compilador: {filename}"
     )
 

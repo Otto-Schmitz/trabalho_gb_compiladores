@@ -1,0 +1,35 @@
+inicio
+    // Teste complexo: múltiplas variáveis, operações aninhadas e reutilização
+    inteiro a, b, c;
+    real x, y, resultado;
+    
+    // Inicializações
+    a := 10;
+    b := 5;
+    c := 2;
+    x := 3.5;
+    y := 1.5;
+    
+    // Operações complexas com conversão de tipos
+    resultado := (a * x) + (b * y) - c;
+    imprima(resultado);
+    
+    // Reutilização de variáveis
+    a := a + b;
+    b := a - c;
+    c := a * b;
+    imprima(a);
+    imprima(b);
+    imprima(c);
+    
+    // Expressões aninhadas profundas
+    resultado := ((a + b) * (x - y)) / (c + 1.0);
+    imprima(resultado);
+    
+    // Múltiplas operações em sequência
+    x := x * 2.0;
+    y := y / 2.0;
+    resultado := x + y;
+    imprima(resultado);
+fim.
+

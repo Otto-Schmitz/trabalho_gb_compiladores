@@ -1,0 +1,11 @@
+inicio
+    inteiro x;
+    real y;
+    
+    // Erro léxico: caractere inválido '@'
+    x := 10@;
+    y := 3.5;
+    
+    imprima(x + y);
+fim.
+
