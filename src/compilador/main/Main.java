@@ -56,8 +56,8 @@ public class Main {
 
                 String lexeme = (s.value != null) ? s.value.toString() : "";
                 System.out.printf(
-                    "token=%d lexeme='%s' (%d,%d)%n",
-                    s.sym, lexeme, s.left, s.right
+                    "token=%s lexeme='%s' (%d,%d)%n",
+                    getSymbolName(s.sym), lexeme, s.left, s.right
                 );
             }
         } catch (Exception e) {
@@ -65,6 +65,31 @@ public class Main {
             System.out.println(message);
         }
         
+    }
+
+    private static String getSymbolName(int sym) {
+        switch (sym) {
+            case compilador.parser.sym.INICIO:  return "INICIO";
+            case compilador.parser.sym.FIM:     return "FIM";
+            case compilador.parser.sym.INTEIRO: return "INTEIRO";
+            case compilador.parser.sym.REAL:    return "REAL";
+            case compilador.parser.sym.IMPRIMA: return "IMPRIMA";
+            case compilador.parser.sym.IDENT:   return "IDENT";
+            case compilador.parser.sym.NUM_INT: return "NUM_INT";
+            case compilador.parser.sym.NUM_REAL: return "NUM_REAL";
+            case compilador.parser.sym.PLUS:    return "PLUS";
+            case compilador.parser.sym.MINUS:   return "MINUS";
+            case compilador.parser.sym.TIMES:   return "TIMES";
+            case compilador.parser.sym.DIV:     return "DIV";
+            case compilador.parser.sym.ATRIB:   return "ATRIB";
+            case compilador.parser.sym.SEMI:    return "SEMI";
+            case compilador.parser.sym.LPAREN:  return "LPAREN";
+            case compilador.parser.sym.RPAREN:  return "RPAREN";
+            case compilador.parser.sym.DOT:     return "DOT";
+            case compilador.parser.sym.COMMA:   return "COMMA";
+            case compilador.parser.sym.EOF:     return "EOF";
+            default: return "UNKNOWN";
+        }
     }
 
     // ---- Pipeline completo: parser + semântico + (ast/ir/run) ----
