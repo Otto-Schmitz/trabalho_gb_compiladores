@@ -1,0 +1,29 @@
+== TOKENS ==
+token=INICIO lexeme='inicio' (1,1)
+token=INTEIRO lexeme='inteiro' (2,5)
+token=IDENT lexeme='x' (2,13)
+token=SEMI lexeme=';' (2,14)
+token=REAL lexeme='real' (3,5)
+token=IDENT lexeme='y' (3,10)
+token=SEMI lexeme=';' (3,11)
+token=IDENT lexeme='x' (6,5)
+token=ATRIB lexeme=':=' (6,7)
+token=NUM_INT lexeme='10' (6,10)
+token=SEMI lexeme=';' (6,13)
+token=IDENT lexeme='y' (7,5)
+token=ATRIB lexeme=':=' (7,7)
+token=NUM_REAL lexeme='3.5' (7,10)
+token=SEMI lexeme=';' (7,13)
+token=IMPRIMA lexeme='imprima' (9,5)
+token=LPAREN lexeme='(' (9,12)
+token=IDENT lexeme='x' (9,13)
+token=PLUS lexeme='+' (9,15)
+token=IDENT lexeme='y' (9,17)
+token=RPAREN lexeme=')' (9,18)
+token=SEMI lexeme=';' (9,19)
+token=FIM lexeme='fim' (10,1)
+token=DOT lexeme='.' (10,4)
+
+Erro léxico na linha 6, coluna 12: caractere inválido '@'
+Erro léxico na linha 6, coluna 12: caractere inválido '@'
+Compilação encerrada devido a erros léxicos/sintáticos.

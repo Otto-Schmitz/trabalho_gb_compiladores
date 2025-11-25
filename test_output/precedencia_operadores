@@ -1,0 +1,136 @@
+== TOKENS ==
+token=INICIO lexeme='inicio' (1,1)
+token=INTEIRO lexeme='inteiro' (2,5)
+token=IDENT lexeme='resultado1' (2,13)
+token=SEMI lexeme=';' (2,23)
+token=INTEIRO lexeme='inteiro' (3,5)
+token=IDENT lexeme='resultado2' (3,13)
+token=SEMI lexeme=';' (3,23)
+token=INTEIRO lexeme='inteiro' (4,5)
+token=IDENT lexeme='resultado3' (4,13)
+token=SEMI lexeme=';' (4,23)
+token=REAL lexeme='real' (5,5)
+token=IDENT lexeme='resultado4' (5,10)
+token=SEMI lexeme=';' (5,20)
+token=IDENT lexeme='resultado1' (7,5)
+token=ATRIB lexeme=':=' (7,16)
+token=NUM_INT lexeme='2' (7,19)
+token=PLUS lexeme='+' (7,21)
+token=NUM_INT lexeme='3' (7,23)
+token=TIMES lexeme='*' (7,25)
+token=NUM_INT lexeme='4' (7,27)
+token=SEMI lexeme=';' (7,28)
+token=IDENT lexeme='resultado2' (8,5)
+token=ATRIB lexeme=':=' (8,16)
+token=LPAREN lexeme='(' (8,19)
+token=NUM_INT lexeme='2' (8,20)
+token=PLUS lexeme='+' (8,22)
+token=NUM_INT lexeme='3' (8,24)
+token=RPAREN lexeme=')' (8,25)
+token=TIMES lexeme='*' (8,27)
+token=NUM_INT lexeme='4' (8,29)
+token=SEMI lexeme=';' (8,30)
+token=IDENT lexeme='resultado3' (9,5)
+token=ATRIB lexeme=':=' (9,16)
+token=NUM_INT lexeme='15' (9,19)
+token=DIV lexeme='/' (9,22)
+token=NUM_INT lexeme='3' (9,24)
+token=PLUS lexeme='+' (9,26)
+token=NUM_INT lexeme='2' (9,28)
+token=SEMI lexeme=';' (9,29)
+token=IDENT lexeme='resultado4' (10,5)
+token=ATRIB lexeme=':=' (10,16)
+token=LPAREN lexeme='(' (10,19)
+token=NUM_REAL lexeme='10.0' (10,20)
+token=MINUS lexeme='-' (10,25)
+token=NUM_REAL lexeme='2.0' (10,27)
+token=RPAREN lexeme=')' (10,30)
+token=DIV lexeme='/' (10,32)
+token=NUM_REAL lexeme='2.0' (10,34)
+token=SEMI lexeme=';' (10,37)
+token=IMPRIMA lexeme='imprima' (12,5)
+token=LPAREN lexeme='(' (12,12)
+token=IDENT lexeme='resultado1' (12,13)
+token=RPAREN lexeme=')' (12,23)
+token=SEMI lexeme=';' (12,24)
+token=IMPRIMA lexeme='imprima' (13,5)
+token=LPAREN lexeme='(' (13,12)
+token=IDENT lexeme='resultado2' (13,13)
+token=RPAREN lexeme=')' (13,23)
+token=SEMI lexeme=';' (13,24)
+token=IMPRIMA lexeme='imprima' (14,5)
+token=LPAREN lexeme='(' (14,12)
+token=IDENT lexeme='resultado3' (14,13)
+token=RPAREN lexeme=')' (14,23)
+token=SEMI lexeme=';' (14,24)
+token=IMPRIMA lexeme='imprima' (15,5)
+token=LPAREN lexeme='(' (15,12)
+token=IDENT lexeme='resultado4' (15,13)
+token=RPAREN lexeme=')' (15,23)
+token=SEMI lexeme=';' (15,24)
+token=FIM lexeme='fim' (16,1)
+token=DOT lexeme='.' (16,4)
+=== AST ===
+Program
+  Declarations:
+    [INT] resultado1
+    [INT] resultado2
+    [INT] resultado3
+    [REAL] resultado4
+  Statements:
+    Assign resultado1 :=
+      BinExpr '+'
+        IntLiteral 2
+        BinExpr '*'
+          IntLiteral 3
+          IntLiteral 4
+    Assign resultado2 :=
+      BinExpr '*'
+        BinExpr '+'
+          IntLiteral 2
+          IntLiteral 3
+        IntLiteral 4
+    Assign resultado3 :=
+      BinExpr '+'
+        BinExpr '/'
+          IntLiteral 15
+          IntLiteral 3
+        IntLiteral 2
+    Assign resultado4 :=
+      BinExpr '/'
+        BinExpr '-'
+          RealLiteral 10,000000
+          RealLiteral 2,000000
+        RealLiteral 2,000000
+    Print
+      VarExpr resultado1
+    Print
+      VarExpr resultado2
+    Print
+      VarExpr resultado3
+    Print
+      VarExpr resultado4
+=== end AST ===
+AST DOT salva em ast.dot
+=== Código intermediário (3 endereços) ===
+t0 = 3 * 4
+t1 = 2 + t0
+resultado1 = t1
+t2 = 2 + 3
+t3 = t2 * 4
+resultado2 = t3
+t4 = 15 / 3
+t5 = t4 + 2
+resultado3 = t5
+t6 = 10.0 - 2.0
+t7 = t6 / 2.0
+resultado4 = t7
+print resultado1
+print resultado2
+print resultado3
+print resultado4
+=== fim do código intermediário ===
+14
+20
+7
+4.0

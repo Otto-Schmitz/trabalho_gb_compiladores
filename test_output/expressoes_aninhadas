@@ -1,0 +1,168 @@
+token=INICIO lexeme='inicio' (1,1)
+token=INTEIRO lexeme='inteiro' (2,5)
+token=IDENT lexeme='x' (2,13)
+token=SEMI lexeme=';' (2,14)
+token=REAL lexeme='real' (3,5)
+token=IDENT lexeme='y' (3,10)
+token=SEMI lexeme=';' (3,11)
+token=REAL lexeme='real' (4,5)
+token=IDENT lexeme='resultado' (4,10)
+token=SEMI lexeme=';' (4,19)
+token=IDENT lexeme='x' (6,5)
+token=ATRIB lexeme=':=' (6,7)
+token=NUM_INT lexeme='5' (6,10)
+token=SEMI lexeme=';' (6,11)
+token=IDENT lexeme='y' (7,5)
+token=ATRIB lexeme=':=' (7,7)
+token=NUM_REAL lexeme='2.0' (7,10)
+token=SEMI lexeme=';' (7,13)
+token=IDENT lexeme='resultado' (9,5)
+token=ATRIB lexeme=':=' (9,15)
+token=LPAREN lexeme='(' (9,18)
+token=LPAREN lexeme='(' (9,19)
+token=IDENT lexeme='x' (9,20)
+token=PLUS lexeme='+' (9,22)
+token=NUM_INT lexeme='1' (9,24)
+token=RPAREN lexeme=')' (9,25)
+token=TIMES lexeme='*' (9,27)
+token=LPAREN lexeme='(' (9,29)
+token=IDENT lexeme='y' (9,30)
+token=MINUS lexeme='-' (9,32)
+token=NUM_INT lexeme='1' (9,34)
+token=RPAREN lexeme=')' (9,35)
+token=RPAREN lexeme=')' (9,36)
+token=DIV lexeme='/' (9,38)
+token=LPAREN lexeme='(' (9,40)
+token=IDENT lexeme='x' (9,41)
+token=MINUS lexeme='-' (9,43)
+token=NUM_INT lexeme='3' (9,45)
+token=RPAREN lexeme=')' (9,46)
+token=SEMI lexeme=';' (9,47)
+token=IMPRIMA lexeme='imprima' (10,5)
+token=LPAREN lexeme='(' (10,12)
+token=IDENT lexeme='resultado' (10,13)
+token=RPAREN lexeme=')' (10,22)
+token=SEMI lexeme=';' (10,23)
+token=IDENT lexeme='resultado' (12,5)
+token=ATRIB lexeme=':=' (12,15)
+token=IDENT lexeme='x' (12,18)
+token=PLUS lexeme='+' (12,20)
+token=LPAREN lexeme='(' (12,22)
+token=IDENT lexeme='y' (12,23)
+token=TIMES lexeme='*' (12,25)
+token=LPAREN lexeme='(' (12,27)
+token=IDENT lexeme='x' (12,28)
+token=MINUS lexeme='-' (12,30)
+token=NUM_INT lexeme='2' (12,32)
+token=RPAREN lexeme=')' (12,33)
+token=PLUS lexeme='+' (12,35)
+token=NUM_INT lexeme='1' (12,37)
+token=RPAREN lexeme=')' (12,38)
+token=SEMI lexeme=';' (12,39)
+token=IMPRIMA lexeme='imprima' (13,5)
+token=LPAREN lexeme='(' (13,12)
+token=IDENT lexeme='resultado' (13,13)
+token=RPAREN lexeme=')' (13,22)
+token=SEMI lexeme=';' (13,23)
+token=IDENT lexeme='x' (15,5)
+token=ATRIB lexeme=':=' (15,7)
+token=LPAREN lexeme='(' (15,10)
+token=IDENT lexeme='x' (15,11)
+token=TIMES lexeme='*' (15,13)
+token=NUM_INT lexeme='2' (15,15)
+token=RPAREN lexeme=')' (15,16)
+token=MINUS lexeme='-' (15,18)
+token=LPAREN lexeme='(' (15,20)
+token=LPAREN lexeme='(' (15,21)
+token=IDENT lexeme='x' (15,22)
+token=DIV lexeme='/' (15,24)
+token=NUM_INT lexeme='2' (15,26)
+token=RPAREN lexeme=')' (15,27)
+token=PLUS lexeme='+' (15,29)
+token=NUM_INT lexeme='1' (15,31)
+token=RPAREN lexeme=')' (15,32)
+token=SEMI lexeme=';' (15,33)
+token=IMPRIMA lexeme='imprima' (16,5)
+token=LPAREN lexeme='(' (16,12)
+token=IDENT lexeme='x' (16,13)
+token=RPAREN lexeme=')' (16,14)
+token=SEMI lexeme=';' (16,15)
+token=FIM lexeme='fim' (17,1)
+token=DOT lexeme='.' (17,4)
+=== AST ===
+Program
+  Declarations:
+    [INT] x
+    [REAL] y
+    [REAL] resultado
+  Statements:
+    Assign x :=
+      IntLiteral 5
+    Assign y :=
+      RealLiteral 2,000000
+    Assign resultado :=
+      BinExpr '/'
+        BinExpr '*'
+          BinExpr '+'
+            VarExpr x
+            IntLiteral 1
+          BinExpr '-'
+            VarExpr y
+            IntLiteral 1
+        BinExpr '-'
+          VarExpr x
+          IntLiteral 3
+    Print
+      VarExpr resultado
+    Assign resultado :=
+      BinExpr '+'
+        VarExpr x
+        BinExpr '+'
+          BinExpr '*'
+            VarExpr y
+            BinExpr '-'
+              VarExpr x
+              IntLiteral 2
+          IntLiteral 1
+    Print
+      VarExpr resultado
+    Assign x :=
+      BinExpr '-'
+        BinExpr '*'
+          VarExpr x
+          IntLiteral 2
+        BinExpr '+'
+          BinExpr '/'
+            VarExpr x
+            IntLiteral 2
+          IntLiteral 1
+    Print
+      VarExpr x
+=== end AST ===
+AST DOT salva em ast.dot
+=== Código intermediário (3 endereços) ===
+x = 5
+y = 2.0
+t0 = x + 1
+t1 = y - 1
+t2 = t0 * t1
+t3 = x - 3
+t4 = t2 / t3
+resultado = t4
+print resultado
+t5 = x - 2
+t6 = y * t5
+t7 = t6 + 1
+t8 = x + t7
+resultado = t8
+print resultado
+t9 = x * 2
+t10 = x / 2
+t11 = t10 + 1
+t12 = t9 - t11
+x = t12
+print x
+=== fim do código intermediário ===
+3.0
+12.0
+7

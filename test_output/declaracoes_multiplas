@@ -1,0 +1,97 @@
+== TOKENS ==
+token=INICIO lexeme='inicio' (1,1)
+token=INTEIRO lexeme='inteiro' (3,5)
+token=IDENT lexeme='x' (3,13)
+token=COMMA lexeme=',' (3,14)
+token=IDENT lexeme='y' (3,16)
+token=COMMA lexeme=',' (3,17)
+token=IDENT lexeme='z' (3,19)
+token=SEMI lexeme=';' (3,20)
+token=REAL lexeme='real' (4,5)
+token=IDENT lexeme='a' (4,10)
+token=COMMA lexeme=',' (4,11)
+token=IDENT lexeme='b' (4,13)
+token=SEMI lexeme=';' (4,14)
+token=IDENT lexeme='x' (7,5)
+token=ATRIB lexeme=':=' (7,7)
+token=NUM_INT lexeme='10' (7,10)
+token=SEMI lexeme=';' (7,12)
+token=IDENT lexeme='y' (8,5)
+token=ATRIB lexeme=':=' (8,7)
+token=NUM_INT lexeme='20' (8,10)
+token=SEMI lexeme=';' (8,12)
+token=IDENT lexeme='z' (9,5)
+token=ATRIB lexeme=':=' (9,7)
+token=NUM_INT lexeme='30' (9,10)
+token=SEMI lexeme=';' (9,12)
+token=IDENT lexeme='a' (10,5)
+token=ATRIB lexeme=':=' (10,7)
+token=NUM_REAL lexeme='1.5' (10,10)
+token=SEMI lexeme=';' (10,13)
+token=IDENT lexeme='b' (11,5)
+token=ATRIB lexeme=':=' (11,7)
+token=NUM_REAL lexeme='2.5' (11,10)
+token=SEMI lexeme=';' (11,13)
+token=IMPRIMA lexeme='imprima' (14,5)
+token=LPAREN lexeme='(' (14,12)
+token=IDENT lexeme='x' (14,13)
+token=PLUS lexeme='+' (14,15)
+token=IDENT lexeme='y' (14,17)
+token=PLUS lexeme='+' (14,19)
+token=IDENT lexeme='z' (14,21)
+token=RPAREN lexeme=')' (14,22)
+token=SEMI lexeme=';' (14,23)
+token=IMPRIMA lexeme='imprima' (15,5)
+token=LPAREN lexeme='(' (15,12)
+token=IDENT lexeme='a' (15,13)
+token=TIMES lexeme='*' (15,15)
+token=IDENT lexeme='b' (15,17)
+token=RPAREN lexeme=')' (15,18)
+token=SEMI lexeme=';' (15,19)
+token=FIM lexeme='fim' (16,1)
+token=DOT lexeme='.' (16,4)
+=== AST ===
+Program
+  Declarations:
+    [INT] x
+    [INT] y
+    [INT] z
+    [REAL] a
+    [REAL] b
+  Statements:
+    Assign x :=
+      IntLiteral 10
+    Assign y :=
+      IntLiteral 20
+    Assign z :=
+      IntLiteral 30
+    Assign a :=
+      RealLiteral 1,500000
+    Assign b :=
+      RealLiteral 2,500000
+    Print
+      BinExpr '+'
+        BinExpr '+'
+          VarExpr x
+          VarExpr y
+        VarExpr z
+    Print
+      BinExpr '*'
+        VarExpr a
+        VarExpr b
+=== end AST ===
+AST DOT salva em ast.dot
+=== Código intermediário (3 endereços) ===
+x = 10
+y = 20
+z = 30
+a = 1.5
+b = 2.5
+t0 = x + y
+t1 = t0 + z
+print t1
+t2 = a * b
+print t2
+=== fim do código intermediário ===
+60
+3.75

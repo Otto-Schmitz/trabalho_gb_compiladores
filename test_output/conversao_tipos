@@ -1,0 +1,76 @@
+== TOKENS ==
+token=INICIO lexeme='inicio' (1,1)
+token=INTEIRO lexeme='inteiro' (2,5)
+token=IDENT lexeme='x' (2,13)
+token=SEMI lexeme=';' (2,14)
+token=REAL lexeme='real' (3,5)
+token=IDENT lexeme='y' (3,10)
+token=SEMI lexeme=';' (3,11)
+token=IDENT lexeme='x' (5,5)
+token=ATRIB lexeme=':=' (5,7)
+token=NUM_INT lexeme='10' (5,10)
+token=SEMI lexeme=';' (5,12)
+token=IDENT lexeme='y' (6,5)
+token=ATRIB lexeme=':=' (6,7)
+token=NUM_REAL lexeme='3.5' (6,10)
+token=SEMI lexeme=';' (6,13)
+token=IMPRIMA lexeme='imprima' (8,5)
+token=LPAREN lexeme='(' (8,12)
+token=IDENT lexeme='x' (8,13)
+token=PLUS lexeme='+' (8,15)
+token=IDENT lexeme='x' (8,17)
+token=RPAREN lexeme=')' (8,18)
+token=SEMI lexeme=';' (8,19)
+token=IMPRIMA lexeme='imprima' (9,5)
+token=LPAREN lexeme='(' (9,12)
+token=IDENT lexeme='x' (9,13)
+token=PLUS lexeme='+' (9,15)
+token=IDENT lexeme='y' (9,17)
+token=RPAREN lexeme=')' (9,18)
+token=SEMI lexeme=';' (9,19)
+token=IMPRIMA lexeme='imprima' (10,5)
+token=LPAREN lexeme='(' (10,12)
+token=IDENT lexeme='y' (10,13)
+token=PLUS lexeme='+' (10,15)
+token=IDENT lexeme='y' (10,17)
+token=RPAREN lexeme=')' (10,18)
+token=SEMI lexeme=';' (10,19)
+token=FIM lexeme='fim' (11,1)
+token=DOT lexeme='.' (11,4)
+=== AST ===
+Program
+  Declarations:
+    [INT] x
+    [REAL] y
+  Statements:
+    Assign x :=
+      IntLiteral 10
+    Assign y :=
+      RealLiteral 3,500000
+    Print
+      BinExpr '+'
+        VarExpr x
+        VarExpr x
+    Print
+      BinExpr '+'
+        VarExpr x
+        VarExpr y
+    Print
+      BinExpr '+'
+        VarExpr y
+        VarExpr y
+=== end AST ===
+AST DOT salva em ast.dot
+=== Código intermediário (3 endereços) ===
+x = 10
+y = 3.5
+t0 = x + x
+print t0
+t1 = x + y
+print t1
+t2 = y + y
+print t2
+=== fim do código intermediário ===
+20
+13.5
+7.0

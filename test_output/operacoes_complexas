@@ -1,0 +1,264 @@
+== TOKENS ==
+token=INICIO lexeme='inicio' (1,1)
+token=INTEIRO lexeme='inteiro' (3,5)
+token=IDENT lexeme='a' (3,13)
+token=COMMA lexeme=',' (3,14)
+token=IDENT lexeme='b' (3,16)
+token=COMMA lexeme=',' (3,17)
+token=IDENT lexeme='c' (3,19)
+token=SEMI lexeme=';' (3,20)
+token=REAL lexeme='real' (4,5)
+token=IDENT lexeme='x' (4,10)
+token=COMMA lexeme=',' (4,11)
+token=IDENT lexeme='y' (4,13)
+token=COMMA lexeme=',' (4,14)
+token=IDENT lexeme='resultado' (4,16)
+token=SEMI lexeme=';' (4,25)
+token=IDENT lexeme='a' (7,5)
+token=ATRIB lexeme=':=' (7,7)
+token=NUM_INT lexeme='10' (7,10)
+token=SEMI lexeme=';' (7,12)
+token=IDENT lexeme='b' (8,5)
+token=ATRIB lexeme=':=' (8,7)
+token=NUM_INT lexeme='5' (8,10)
+token=SEMI lexeme=';' (8,11)
+token=IDENT lexeme='c' (9,5)
+token=ATRIB lexeme=':=' (9,7)
+token=NUM_INT lexeme='2' (9,10)
+token=SEMI lexeme=';' (9,11)
+token=IDENT lexeme='x' (10,5)
+token=ATRIB lexeme=':=' (10,7)
+token=NUM_REAL lexeme='3.5' (10,10)
+token=SEMI lexeme=';' (10,13)
+token=IDENT lexeme='y' (11,5)
+token=ATRIB lexeme=':=' (11,7)
+token=NUM_REAL lexeme='1.5' (11,10)
+token=SEMI lexeme=';' (11,13)
+token=IDENT lexeme='resultado' (14,5)
+token=ATRIB lexeme=':=' (14,15)
+token=LPAREN lexeme='(' (14,18)
+token=IDENT lexeme='a' (14,19)
+token=TIMES lexeme='*' (14,21)
+token=IDENT lexeme='x' (14,23)
+token=RPAREN lexeme=')' (14,24)
+token=PLUS lexeme='+' (14,26)
+token=LPAREN lexeme='(' (14,28)
+token=IDENT lexeme='b' (14,29)
+token=TIMES lexeme='*' (14,31)
+token=IDENT lexeme='y' (14,33)
+token=RPAREN lexeme=')' (14,34)
+token=MINUS lexeme='-' (14,36)
+token=IDENT lexeme='c' (14,38)
+token=SEMI lexeme=';' (14,39)
+token=IMPRIMA lexeme='imprima' (15,5)
+token=LPAREN lexeme='(' (15,12)
+token=IDENT lexeme='resultado' (15,13)
+token=RPAREN lexeme=')' (15,22)
+token=SEMI lexeme=';' (15,23)
+token=IDENT lexeme='a' (18,5)
+token=ATRIB lexeme=':=' (18,7)
+token=IDENT lexeme='a' (18,10)
+token=PLUS lexeme='+' (18,12)
+token=IDENT lexeme='b' (18,14)
+token=SEMI lexeme=';' (18,15)
+token=IDENT lexeme='b' (19,5)
+token=ATRIB lexeme=':=' (19,7)
+token=IDENT lexeme='a' (19,10)
+token=MINUS lexeme='-' (19,12)
+token=IDENT lexeme='c' (19,14)
+token=SEMI lexeme=';' (19,15)
+token=IDENT lexeme='c' (20,5)
+token=ATRIB lexeme=':=' (20,7)
+token=IDENT lexeme='a' (20,10)
+token=TIMES lexeme='*' (20,12)
+token=IDENT lexeme='b' (20,14)
+token=SEMI lexeme=';' (20,15)
+token=IMPRIMA lexeme='imprima' (21,5)
+token=LPAREN lexeme='(' (21,12)
+token=IDENT lexeme='a' (21,13)
+token=RPAREN lexeme=')' (21,14)
+token=SEMI lexeme=';' (21,15)
+token=IMPRIMA lexeme='imprima' (22,5)
+token=LPAREN lexeme='(' (22,12)
+token=IDENT lexeme='b' (22,13)
+token=RPAREN lexeme=')' (22,14)
+token=SEMI lexeme=';' (22,15)
+token=IMPRIMA lexeme='imprima' (23,5)
+token=LPAREN lexeme='(' (23,12)
+token=IDENT lexeme='c' (23,13)
+token=RPAREN lexeme=')' (23,14)
+token=SEMI lexeme=';' (23,15)
+token=IDENT lexeme='resultado' (26,5)
+token=ATRIB lexeme=':=' (26,15)
+token=LPAREN lexeme='(' (26,18)
+token=LPAREN lexeme='(' (26,19)
+token=IDENT lexeme='a' (26,20)
+token=PLUS lexeme='+' (26,22)
+token=IDENT lexeme='b' (26,24)
+token=RPAREN lexeme=')' (26,25)
+token=TIMES lexeme='*' (26,27)
+token=LPAREN lexeme='(' (26,29)
+token=IDENT lexeme='x' (26,30)
+token=MINUS lexeme='-' (26,32)
+token=IDENT lexeme='y' (26,34)
+token=RPAREN lexeme=')' (26,35)
+token=RPAREN lexeme=')' (26,36)
+token=DIV lexeme='/' (26,38)
+token=LPAREN lexeme='(' (26,40)
+token=IDENT lexeme='c' (26,41)
+token=PLUS lexeme='+' (26,43)
+token=NUM_REAL lexeme='1.0' (26,45)
+token=RPAREN lexeme=')' (26,48)
+token=SEMI lexeme=';' (26,49)
+token=IMPRIMA lexeme='imprima' (27,5)
+token=LPAREN lexeme='(' (27,12)
+token=IDENT lexeme='resultado' (27,13)
+token=RPAREN lexeme=')' (27,22)
+token=SEMI lexeme=';' (27,23)
+token=IDENT lexeme='x' (30,5)
+token=ATRIB lexeme=':=' (30,7)
+token=IDENT lexeme='x' (30,10)
+token=TIMES lexeme='*' (30,12)
+token=NUM_REAL lexeme='2.0' (30,14)
+token=SEMI lexeme=';' (30,17)
+token=IDENT lexeme='y' (31,5)
+token=ATRIB lexeme=':=' (31,7)
+token=IDENT lexeme='y' (31,10)
+token=DIV lexeme='/' (31,12)
+token=NUM_REAL lexeme='2.0' (31,14)
+token=SEMI lexeme=';' (31,17)
+token=IDENT lexeme='resultado' (32,5)
+token=ATRIB lexeme=':=' (32,15)
+token=IDENT lexeme='x' (32,18)
+token=PLUS lexeme='+' (32,20)
+token=IDENT lexeme='y' (32,22)
+token=SEMI lexeme=';' (32,23)
+token=IMPRIMA lexeme='imprima' (33,5)
+token=LPAREN lexeme='(' (33,12)
+token=IDENT lexeme='resultado' (33,13)
+token=RPAREN lexeme=')' (33,22)
+token=SEMI lexeme=';' (33,23)
+token=FIM lexeme='fim' (34,1)
+token=DOT lexeme='.' (34,4)
+=== AST ===
+Program
+  Declarations:
+    [INT] a
+    [INT] b
+    [INT] c
+    [REAL] x
+    [REAL] y
+    [REAL] resultado
+  Statements:
+    Assign a :=
+      IntLiteral 10
+    Assign b :=
+      IntLiteral 5
+    Assign c :=
+      IntLiteral 2
+    Assign x :=
+      RealLiteral 3,500000
+    Assign y :=
+      RealLiteral 1,500000
+    Assign resultado :=
+      BinExpr '-'
+        BinExpr '+'
+          BinExpr '*'
+            VarExpr a
+            VarExpr x
+          BinExpr '*'
+            VarExpr b
+            VarExpr y
+        VarExpr c
+    Print
+      VarExpr resultado
+    Assign a :=
+      BinExpr '+'
+        VarExpr a
+        VarExpr b
+    Assign b :=
+      BinExpr '-'
+        VarExpr a
+        VarExpr c
+    Assign c :=
+      BinExpr '*'
+        VarExpr a
+        VarExpr b
+    Print
+      VarExpr a
+    Print
+      VarExpr b
+    Print
+      VarExpr c
+    Assign resultado :=
+      BinExpr '/'
+        BinExpr '*'
+          BinExpr '+'
+            VarExpr a
+            VarExpr b
+          BinExpr '-'
+            VarExpr x
+            VarExpr y
+        BinExpr '+'
+          VarExpr c
+          RealLiteral 1,000000
+    Print
+      VarExpr resultado
+    Assign x :=
+      BinExpr '*'
+        VarExpr x
+        RealLiteral 2,000000
+    Assign y :=
+      BinExpr '/'
+        VarExpr y
+        RealLiteral 2,000000
+    Assign resultado :=
+      BinExpr '+'
+        VarExpr x
+        VarExpr y
+    Print
+      VarExpr resultado
+=== end AST ===
+AST DOT salva em ast.dot
+=== Código intermediário (3 endereços) ===
+a = 10
+b = 5
+c = 2
+x = 3.5
+y = 1.5
+t0 = a * x
+t1 = b * y
+t2 = t0 + t1
+t3 = t2 - c
+resultado = t3
+print resultado
+t4 = a + b
+a = t4
+t5 = a - c
+b = t5
+t6 = a * b
+c = t6
+print a
+print b
+print c
+t7 = a + b
+t8 = x - y
+t9 = t7 * t8
+t10 = c + 1.0
+t11 = t9 / t10
+resultado = t11
+print resultado
+t12 = x * 2.0
+x = t12
+t13 = y / 2.0
+y = t13
+t14 = x + y
+resultado = t14
+print resultado
+=== fim do código intermediário ===
+40.5
+15
+13
+195
+0.2857142857142857
+7.75
