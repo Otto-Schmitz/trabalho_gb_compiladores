@@ -35,7 +35,7 @@ public class Main {
             modeRun = true;
         }
 
-        if (modeTokens) {
+        if (modeTokens || modeRun) {
             System.out.println("ENTROU NO TOKES");
             runTokens(filename);
             // se só --tokens foi passado, paramos aqui
