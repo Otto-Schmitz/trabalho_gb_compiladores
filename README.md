@@ -1,4 +1,4 @@
-### Micro-compilador
+# Micro-compilador
 
 Este microcompilador tem o objetivo de implementar um compilador educacional mínimo, contendo as fases léxica, sintática e semântica, além de executar o código. Ele foi desenvolvido para compilar uma linguagem mínima, limitando-se em alguns aspectos como tipos (apenas inteiro e real), operações (apenas +, -, \*, ), delimitadores( "(" e ")"), palavras-chave e funções (apenas imprimir).
 
@@ -30,24 +30,27 @@ No diretório src é possível encontrar:
 
 
 
-# Compilação do micro-compilador
+## Compilação do micro-compilador
 
 Com o terminal aberto no diretório principal (trabalho\_gb\_compiladores/) o comando:
 
 python run.py --build
 
 
-# Execução do micro-compilador
+## Execução do micro-compilador
 
 Com o terminal aberto no diretório principal (trabalho\_gb\_compiladores/):
 
 *Geração tokens*
+
 python run.py --tokens tests\arquivo.prog
 
 *Geração AST*
+
 python run.py --ast tests\arquivo.prog
 
 *Roda teste*
+
 python run.py tests\arquivo.prog
 ou
 python run.py --run tests\arquivo.prog
